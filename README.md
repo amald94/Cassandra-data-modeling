@@ -1,7 +1,7 @@
 # Project: Sparkify-data-modeling 
 
 ## Summary
-* [CQL queries] (#CQL)
+* [CQL queries](#CQL)
 * [Problem](#Problem)
 * [Project structure](#Structure)
 
