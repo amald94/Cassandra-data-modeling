@@ -15,15 +15,39 @@
 CREATE TABLE IF NOT EXISTS music_library_session_data
 		(sessionId int, itemInSession int,artist_name text, 
 		 song_title text, song_length text,
-         PRIMARY KEY ((sessionId, itemInSession)))
+    PRIMARY KEY ((sessionId, itemInSession)))
 ```
 
-<br>In this case session_id and session_item_number are enough to make a record unique for our request. 
-PRIMARY KEY is composed by both session_id and session_item_number.
+<br>In this case sessionId and itemInSession are enough to make a record unique for our request. 
+PRIMARY KEY is composed by both sessionId and itemInSession.
 
 * 2. Give me only the following: name of artist, song (sorted by itemInSession) and user (first and last name) for userid = 10, sessionid = 182
+
+``` SQL
+CREATE TABLE IF NOT EXISTS music_library_session_dataTwo
+		(userId int, sessionId int, itemInSession int,artist_name text, 
+		 song_title text, song_length text,
+         first_name text, last_name text,
+    PRIMARY KEY ((userId,sessionId), itemInSession))
+
+```
+
+<br>In this case userId and sessionId are enough to make a record unique for our request but for this request 
+we have to order by itemInSession, so we have to declare itemInSession as a CLUSTERING KEY.
+Our complete PRIMARY KEY is composed by userId, sessionId, itemInSession
+
 * 3. Give me every user name (first and last) in my music app history who listened to the song 'All Hands Against His Own
 
+``` SQL
+CREATE TABLE IF NOT EXISTS music_library_session_dataThree
+			(userId int, song_title text,
+             first_name text, last_name text,
+        PRIMARY KEY ((song_title), userId))"
+
+```
+<br>In this case song_title is the PARTITION KEY becuase we have to return all usernames based on the song name. userId is the CLUSTERING KEY, 
+becuase more users can listen to the same song, so we need to have a unique record.
+Our complete PRIMARY KEY is composed by song_title, userId
 --------------------------------------------
 
 #### Problem
