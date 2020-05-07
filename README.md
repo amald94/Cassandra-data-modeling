@@ -12,7 +12,7 @@
 * 1. Give me the artist, song title and song's length in the music app history that was heard during sessionId = 338, and itemInSession = 4
 
 ``` SQL
-CREATE TABLE IF NOT EXISTS music_library_session_data
+CREATE TABLE IF NOT EXISTS song_session_data
 		(sessionId int, itemInSession int,artist_name text, 
 		 song_title text, song_length text,
     PRIMARY KEY ((sessionId, itemInSession)))
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS music_library_session_data
 * 2. Give me only the following: name of artist, song (sorted by itemInSession) and user (first and last name) for userid = 10, sessionid = 182
 
 ``` SQL
-CREATE TABLE IF NOT EXISTS music_library_session_dataTwo
+CREATE TABLE IF NOT EXISTS song_user_data
 		(userId int, sessionId int, itemInSession int,artist_name text, 
 		 song_title text, song_length text,
          first_name text, last_name text,
@@ -39,7 +39,7 @@ Our complete <b>PRIMARY KEY</b> is composed by userId, sessionId, itemInSession
 * 3. Give me every user name (first and last) in my music app history who listened to the song 'All Hands Against His Own'
 
 ``` SQL
-CREATE TABLE IF NOT EXISTS music_library_session_dataThree
+CREATE TABLE IF NOT EXISTS user_data_by_song
 			(userId int, song_title text,
              first_name text, last_name text,
         PRIMARY KEY ((song_title), userId))"
