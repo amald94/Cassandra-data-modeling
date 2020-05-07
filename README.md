@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS music_library_session_dataTwo
 we have to order by itemInSession, so we have to declare itemInSession as a CLUSTERING KEY.
 Our complete PRIMARY KEY is composed by userId, sessionId, itemInSession
 
-* 3. Give me every user name (first and last) in my music app history who listened to the song 'All Hands Against His Own
+* 3. Give me every user name (first and last) in my music app history who listened to the song 'All Hands Against His Own'
 
 ``` SQL
 CREATE TABLE IF NOT EXISTS music_library_session_dataThree
@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS music_library_session_dataThree
 <br>In this case song_title is the PARTITION KEY becuase we have to return all usernames based on the song name. userId is the CLUSTERING KEY, 
 becuase more users can listen to the same song, so we need to have a unique record.
 Our complete PRIMARY KEY is composed by song_title, userId
+
 --------------------------------------------
 
 #### Problem
