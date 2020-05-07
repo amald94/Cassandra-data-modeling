@@ -11,15 +11,12 @@
 
 * 1. Give me the artist, song title and song's length in the music app history that was heard during sessionId = 338, and itemInSession = 4
 
-<code>
-```sql
+``` SQL
 CREATE TABLE IF NOT EXISTS music_library_session_data
 		(sessionId int, itemInSession int,artist_name text, 
 		 song_title text, song_length text,
          PRIMARY KEY ((sessionId, itemInSession)))
 ```
-
-</code>
 
 <br>In this case session_id and session_item_number are enough to make a record unique for our request. 
 PRIMARY KEY is composed by both session_id and session_item_number.
